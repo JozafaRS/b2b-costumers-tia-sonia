@@ -1,6 +1,6 @@
 from rest_framework import generics, viewsets
-from api.models import Vendedor, Cliente, Configuracao
-from api.serializers import VendedorSerializer, ClienteSerializer, ConfiguracaoSerializer
+from api.models import Vendedor, Cliente, Parametro
+from api.serializers import VendedorSerializer, ClienteSerializer, ParametroSerializer
 
 class VendedorViewSet(viewsets.ModelViewSet):
     queryset = Vendedor.objects.all()
@@ -10,6 +10,6 @@ class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
 
-class ConfiguracaoViewSet(viewsets.ModelViewSet):
-    queryset = Configuracao.objects.all()
-    serializer_class = ConfiguracaoSerializer
+class ParametroViewSet(viewsets.ModelViewSet):
+    queryset = Parametro.objects.all()
+    serializer_class = ParametroSerializer

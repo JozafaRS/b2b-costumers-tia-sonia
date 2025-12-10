@@ -11,7 +11,7 @@ class ClienteSerializer(serializers.ModelSerializer):
         model = Cliente
         fields = "__all__"
 
-class ConfiguracaoSerializer(serializers.ModelSerializer):
+class ParametroSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Configuracao
+        model = Parametro
         fields = "__all__"

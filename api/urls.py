@@ -7,7 +7,7 @@ router = DefaultRouter()
 
 router.register('vendedor', VendedorViewSet)
 router.register('cliente', ClienteViewSet)
-router.register('configuracao', ConfiguracaoViewSet)
+router.register('parametro', ParametroViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
