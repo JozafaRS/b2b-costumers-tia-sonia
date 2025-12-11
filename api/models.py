@@ -27,7 +27,7 @@ class Cliente(models.Model):
         CLIENTE_ATIVO_FORA = 'CA', 'Cliente ativo fora do CRM'
         FATURADO_FORA = 'FF', 'Faturado fora do CRM'
 
-    codigo_cliente = models.IntegerField(unique=True)
+    codigo_cliente = models.CharField(max_length=200, unique=True)
     razao_social = models.CharField(max_length=200, null=True)
     cnpj_cpf = models.CharField(max_length=100, null=True)
     endereco = models.CharField(max_length=200, null=True)
@@ -36,7 +36,7 @@ class Cliente(models.Model):
     uf = models.CharField(max_length=50, null=True)
     telefone = models.CharField(max_length=100, null=True)
     email = models.TextField(null=True)
-    vendedor = models.IntegerField(null=True)
+    vendedor = models.CharField(max_length=200,null=True)
     data_primeira_compra = models.DateField(null=True)
     data_ultima_compra = models.DateField(null=True)
     valor_ultima_compra = models.FloatField(null=True)
