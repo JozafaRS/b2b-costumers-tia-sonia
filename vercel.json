@@ -8,15 +8,10 @@
         "maxLambdaSize": "15mb",
         "runtime": "Python3.9"
       }
-    },
-    {
-      "src": "build.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles_build" 
-      }
     }
   ],
+  "buildCommand": "pip install -r requirements.txt && python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py collectstatic --noinput --clear",
+  "outputDirectory": "staticfiles_build",
   "routes": [
     {
         "src": "/static/(.*)", 
