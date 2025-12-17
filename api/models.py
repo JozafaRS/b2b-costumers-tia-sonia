@@ -2,6 +2,7 @@ from django.db import models
 
 class Parametro(models.Model):
     nome = models.CharField(max_length=100, unique=True)
+    chave = models.CharField(max_length=100, unique=True, default='key')
     valor = models.JSONField(blank=True, null=True)
 
     def __str__(self):
@@ -9,7 +10,7 @@ class Parametro(models.Model):
 
 class Vendedor(models.Model):
     nome = models.CharField(max_length=100)
-    codigo_totvs = models.IntegerField(unique=True)
+    codigo_totvs = models.CharField(max_length=200, unique=True)
     codigo_bitrix = models.IntegerField(unique=True)
     ativo = models.BooleanField(default=True)
 
@@ -45,12 +46,12 @@ class Cliente(models.Model):
     qtd_pedidos = models.IntegerField(default=0)
     
     ultima_data_termino = models.DateField(null=True)
-    status_importacao = models.CharField(max_length=2, choices=StatusImportacao.choices, null=True)
+    status_importacao  = models.CharField(max_length=2, choices=StatusImportacao.choices, null=True)
     periodicidade = models.IntegerField(null=True)
     responsavel_crm = models.IntegerField(null=True)
     id_contato = models.IntegerField(null=True)
-    fantasia = models.CharField(max_length=200, null=True)
+    nome_fantasia = models.CharField(max_length=200, null=True)
     data_atualizacao = models.DateField(null=True)
 
     def __str__(self):
-        return self.razao_social
+        return self.razao_social or 'vazio'
